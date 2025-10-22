@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MANDRIKA - RESELLER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="container py-4">
+    <h2>CLIENTES HOSTING MANDRIKA SAC</h2>
+
+    <div class="userconnect">
+        <p>Bienvenido {{ session['usuario'] }} ({{ session['rol'] }})</p>
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        
+        
+    </div>
+
+    <a href="/add_account" class="btn btn-primary mb-3">Agregar Cuenta</a>
+
+
+    <!-- <form action="{{ url_for('cuentas') }}" method="post">
+
+        <label for="mes">Filtrar por Mes:</label>
+
+        <select name="mes" id="mes" required>
+            <option value="">Selecciona un Mes</option>
+            {% for codigo, nombre in meses %}
+                <option value="{{ codigo }}">{{ nombre }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar</button>
+    </form> -->
+
+    <!-- Filtro -->
+    <form action="{{ url_for('index') }}" method="post">
+        <label for="mes">Filtrar por Mes:</label>
+        <select name="mes" id="mes" required>
+            <option value=""> Selecciona un Mes </option>
+            
+
+            {% for codigo, nombre in meses %}
+                <option value="{{ codigo }}" {% if mes_seleccionado == codigo %}selected{% endif %}>
+                    {{ nombre }}
+                </option>
+            {% endfor %}
+
+            <option value="all" {% if mes_seleccionado == "all" or not mes_seleccionado %}selected{% endif %}>Todos </option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <hr>
+
+
+<!--     {% if users %}
+    <table cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Dominio</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+        </tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.dominio }}</td>
+            <td>{{ u.usuario }}</td>
+            <td>{{ u.fecha_reg }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No se encontraron registros{% if mes_seleccionado %} en este mes{% endif %}.</p>
+    {% endif %} -->
+
+
+    
+
+    {% if users %}
+    <table class="table table-bordered">
+        <tr><th>ID</th><th>Nombre</th><th>Email</th><th>Quota</th><th>Fecha Registro</th><th>Acciones</th></tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.dominio }}</td>
+            <td>{{ user.usuario }}</td>
+            <td>{{ user.disco }}</td>
+            <td>{{ user.fecha_reg }}</td>
+            <td>
+                <a href="/detail/{{ user.id }}" class="btn btn-warning btn-sm">Ver</a>
+                <a href="/edit/{{ user.id }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="/delete_account/{{ user.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No se encontraron registros{% if mes_seleccionado %} en este mes{% endif %}.</p>
+    {% endif %}
+
+
+</body>
+</html>

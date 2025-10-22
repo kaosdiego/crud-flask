@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados para el Mes {{ mes }}</h1>
+
+    {% if registros %}
+        <table cellpadding="5">
+            <tr>
+                <th>ID</th>
+                <th>Dominio</th>
+                <th>Fecha Registro</th>
+                <th>Precio</th>
+                <th>Detalle</th>
+            </tr>
+            {% for r in registros %}
+            <tr>
+                <td>{{ r.id }}</td>
+                <td>{{ r.dominio }}</td>
+                <td>{{ r.fecha_Reg }}</td>
+                <td>{{ r.precio }}</td>
+                <td>{{ r.detalle }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron registros en este mes.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

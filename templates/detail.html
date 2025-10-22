@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ver Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="container py-4">
+
+
+
+    <h2>Detalle de Cuenta</h2>
+
+    
+        <div class="account-list">
+            <div class="mb-3">
+                <label>Dominio:</label>
+                <p>{{ user.dominio }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Usuario:</label>
+                <p>{{ user.usuario }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Contraseña:</label>
+                <p>{{ user.contrasena }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Fecha Registro:</label>
+                <p>{{ user.fecha_reg }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Disco:</label>
+                <p>{{ user.disco }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Transferencia Mensual:</label>
+                <p>{{ user.transfer_mensual }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Paquete:</label>
+                <p>{{ user.paquete }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Precio:</label>
+                <p>{{ user.precio }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Server 1:</label>
+                <p>{{ user.server1 }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Server 2:</label>
+                <p>{{ user.server2 }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Detalle:</label>
+                <p>{{ user.detalle }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Estado:</label>
+                <p>{{ user.estado }}</p>
+            </div>
+        </div>
+
+        <a href="/index" class="btn btn-primary">Volver</a>
+   
+</body>
+</html>
