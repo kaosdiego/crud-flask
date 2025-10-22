@@ -1,0 +1,8 @@
+.userconnect {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.account-list p{
+    font-weight: bold;
+}
