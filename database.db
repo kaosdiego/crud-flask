@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  "id" INTEGER AUTOINCREMENT,
+  "name" TEXT,
+  "email" TEXT,
+  "fecha_reg" date DEFAULT NULL,
+  "quota" TEXT,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO users VALUES (1,'Diego Barrientos','ideas.diego@gmail.com','2025-04-03','300'),(2,'Carlos Gonzales','cgonzaleZ@gmail.com','2025-03-06','400'),(3,'Jorge Lopezs','jlopez@hotmail.com','2025-04-17','200'),(5,'Maritza Guevara','mguevara@hamerr.com','2025-04-29','250');
+
