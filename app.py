@@ -1,18 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import date
 import mysql.connector
+import sqlite3
+db = sqlite3.connect("database.db", check_same_thread=False)
 
 app = Flask(__name__)
 
 # CODE LOGIN INICIO
 app.secret_key = 'tu_clave_secreta'  # Necesario para usar sesiones
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="As1234$",
-    database="reseller"
-)
+# db = mysql.connector.connect(
+#    host="localhost",
+#   user="root",
+#    password="As1234$",
+#    database="reseller"
+# )
 cursor = db.cursor(dictionary=True)
 
 # Lista fija de meses
